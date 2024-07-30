@@ -14,12 +14,7 @@ export default function EditPage(props: {
   const edit = props.edit;
 
   const {
-    Repect,
-    CreateRecipe,
-    setCreateRecipe,
-    setRepect,
     data,
-    setdata,
     fetchData2,
   } = useCategoryContext();
   const [newData, setnewData] = useState<DATAT>(

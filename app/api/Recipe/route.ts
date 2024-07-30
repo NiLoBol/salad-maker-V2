@@ -17,7 +17,6 @@ export async function POST(request: Request) {
     const dataToWrite = JSON.stringify(data);
     const filePath = path.join(process.cwd(), 'data', 'recipes.json');
 
-    // Ensure the directory exists
     await fs.mkdir(path.dirname(filePath), { recursive: true });
 
     await fs.writeFile(filePath, dataToWrite, 'utf8');

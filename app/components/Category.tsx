@@ -1,5 +1,5 @@
 "use client"
-import React, { ReactElement, useState } from "react";
+import React from "react";
 import Check from "./Icon/Check";
 import { useCategoryContext } from "./CategoryProvider";
 import { IconProps } from "../Type";

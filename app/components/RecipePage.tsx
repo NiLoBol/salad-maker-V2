@@ -6,18 +6,13 @@ import EditIcon from "./Icon/EditIcon";
 import axios from "axios";
 import EditPage from "./EditPage";
 import CloseIcon from "./Icon/CloseIcon";
-import SaladmakerIconFooter from "./Icon/SaladmakerIconFooter";
 import DeleteIcon2 from "./Icon/DeleteIcon2";
 
 export default function RecipePage() {
   const {
-    Repect,
-    ingredients,
     CreateRecipe,
     setCreateRecipe,
-    setRepect,
     data,
-    setdata,
     fetchData2,
   } = useCategoryContext();
   useEffect(() => {

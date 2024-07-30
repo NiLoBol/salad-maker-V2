@@ -1,7 +1,5 @@
 "use client";
-import React, { useContext, useEffect, useState } from "react";
-import { Ingredient } from "../Type";
-import axios from "axios";
+import React from "react";
 import IncreaseIcon from "./Icon/IncreaseIcon";
 import ReduceIcon from "./Icon/ReduceIcon";
 import { useCategoryContext } from "./CategoryProvider";
@@ -9,14 +7,8 @@ import { useCategoryContext } from "./CategoryProvider";
 export default function SaladList() {
   const {
     ingredients,
-    setIngredients,
     Repect,
     setRepect,
-    checkVegetables,
-    checkFruit,
-    checkToppings,
-    checkProtein,
-    checkDressing,
   } = useCategoryContext();
   return (
     <div className="grid grid-cols-4  gap-6 pe-12" key={"LIST"}>

@@ -1,7 +1,7 @@
 "use client";
-import React, { ReactHTMLElement, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useCategoryContext } from "./CategoryProvider";
-import SaladmakerIcon from "./Icon/SaladmakerIcon";
+
 import SaladmakerIconFooter from "./Icon/SaladmakerIconFooter";
 import CloseIcon from "./Icon/CloseIcon";
 import { DATAT, Ingredient } from "../Type";
@@ -16,11 +16,6 @@ export default function Footer() {
     setRepect,
     data,
     setdata,
-    setCheckVegetables,
-    setCheckFruit,
-    setCheckToppings,
-    setCheckProtein,
-    setCheckDressing,
   } = useCategoryContext();
 
   const [count, setcount] = useState<number>(0);
@@ -67,7 +62,6 @@ export default function Footer() {
   }, [CreateRecipe]);
   const UpdateData = async (data: DATAT[]) => {
     try {
-      // Sample payload for the POST request, you should replace this with your actual payload
       const response = await axios.post("/api/Recipe", data);
       console.log("Response from API:", response.data);
     } catch (error) {

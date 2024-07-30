@@ -163,10 +163,6 @@ export default function Footer() {
                       const Copydata = JSON.parse(JSON.stringify(data));
                       Copydata.push(DATAs);
                       setdata(Copydata);
-                      localStorage.setItem(
-                        "SaladMakerRecipe-232325",
-                        JSON.stringify(Copydata)
-                      );
                       UpdateData(Copydata);
                       setRepect(
                         Array.apply(null, Array(23)).map(function (x, i) {

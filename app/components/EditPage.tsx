@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import { useCategoryContext } from "./CategoryProvider";
 import { DATAT, Ingredient } from "../Type";
 import axios from "axios";
+import ReduceIcon from "./Icon/ReduceIcon";
+import IncreaseIcon from "./Icon/IncreaseIcon";
+import DeleteIcon from "./Icon/DeleteIcon";
 
 export default function EditPage(props: {
   edit: number;
@@ -70,35 +73,46 @@ export default function EditPage(props: {
                     alt=""
                   />
                 </div>
-                <div className="basis-10/12">
+                <div className="basis-4/12">
                   <div>{ingredients[item.index].ingredient}</div>
-                  <div
-                    onClick={() => {
-                      const DATA: DATAT = JSON.parse(JSON.stringify(newData));
-                      // if (DATA.items[index].count >= 1) {
-                      //   if (DATA.items[index].count == 1) {
-                      //     DATA.calories -=
-                      //       ingredients[newData.items[index].index].calories;
-                      //     DATA.items.splice(index, 1);
-                      //   } else {
-                      //     DATA.items[index].count -= 1;
-                      //     DATA.calories -=
-                      //       ingredients[newData.items[index].index].calories;
-                      //   }
-                      //   setnewData(DATA);
-                      // } else {
-                      // }
-                      DATA.items.splice(index, 1);
-                      setnewData(DATA);
-                    }}
-                    className="text-sm font-normal"
-                  >
-                    <span className="text-Slate">
-                      x{newData.items[index].count}
-                    </span>{" "}
-                    <span className="text-Red underline font-medium hover:cursor-pointer">
-                      Delete
-                    </span>
+                </div>
+                <div className="basis-4/12">
+                  <div className="flex flex-row- items-center gap-4">
+                    <div
+                      onClick={() => {
+                        const DATA: DATAT = JSON.parse(JSON.stringify(newData));
+                        if (DATA.items[index].count >= 1) {
+                          if (DATA.items[index].count == 1) {
+                          } else {
+                            DATA.items[index].count -= 1;
+                            DATA.calories -=
+                              ingredients[newData.items[index].index].calories;
+                          }
+                          setnewData(DATA);
+                        } else {
+                        }
+                      }}
+                      className="hover:cursor-pointer"
+                    >
+                      <ReduceIcon />
+                    </div>
+
+                    <div className="text-center text-2xl font-bold">
+                      {newData.items[index].count}
+                    </div>
+
+                    <div
+                      onClick={() => {
+                        const DATA: DATAT = JSON.parse(JSON.stringify(newData));
+                        DATA.items[index].count += 1;
+                        DATA.calories +=
+                          ingredients[newData.items[index].index].calories;
+                        setnewData(DATA);
+                      }}
+                      className="hover:cursor-pointer"
+                    >
+                      <IncreaseIcon />
+                    </div>
                   </div>
                 </div>
                 <div className="basis-32 ">
@@ -106,6 +120,20 @@ export default function EditPage(props: {
                     +{ingredients[item.index].calories * item.count}{" "}
                     <span className="text-Primary">Cal</span>
                   </div>
+                </div>
+                <div
+                
+                  onClick={() => {
+                    const DATA: DATAT = JSON.parse(JSON.stringify(newData));
+                    DATA.calories -=
+                      ingredients[newData.items[index].index].calories *
+                      newData.items[index].count;
+                    DATA.items.splice(index, 1);
+                    setnewData(DATA);
+                  }}
+                  className="hover:cursor-pointer shadow-custom rounded-full w-[40px] h-[40px] flex items-center justify-center"
+                >
+                  <DeleteIcon />{" "}
                 </div>
               </div>
             );

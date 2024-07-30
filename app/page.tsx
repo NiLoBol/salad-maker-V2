@@ -1,11 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
-import axios from "axios";
-import Image from "next/image";
+import {  useState } from "react";
 import SaladmakerIcon from "./components/Icon/SaladmakerIcon";
 import Recipe from "./components/Icon/Recipe";
 import SaladMakerPage from "./components/SaladMakerPage";
-import { Ingredient } from "./Type";
+
 import Footer from "./components/Footer";
 import RecipePage from "./components/RecipePage";
 
